@@ -426,6 +426,23 @@ class TestPyrata(object):
     if verbosity >0:
       print ()
 
+  def test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step1_step2(self, verbosity):
+    description = 'test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step2_step3'
+    method = 'findall'
+    lexicons = {}
+    pattern = 'raw="is" ( raw="funny" raw="and" raw="easy" | raw="easy" raw="and" raw="funny" ) raw="to"'
+    data = [{'pos': 'PRP', 'raw': 'It'}, {'pos': 'VBZ', 'raw': 'is'}, {'pos': 'JJ', 'raw': 'funny'}, {'pos': 'CC', 'raw': 'and'}, {'pos': 'JJ', 'raw': 'easy'}, {'pos': 'TO', 'raw': 'to'}, {'pos': 'VB', 'raw': 'write'}, {'pos': 'JJ', 'raw': 'regular'}, {'pos': 'NNS', 'raw': 'expressions'}, {'pos': 'IN', 'raw': 'with'},{'pos': 'NNP', 'raw': 'Pyrata'}]
+    expected = [[{'raw': 'is', 'pos': 'VBZ'}, {'raw': 'fast', 'pos': 'JJ'}, {'raw': 'easy', 'pos': 'JJ'}, {'raw': 'and', 'pos': 'CC'}, {'raw': 'funny', 'pos': 'JJ'}, {'raw': 'to', 'pos': 'TO'}]]
+    self.test(description, method, lexicons, pattern, data, expected, verbosity)  
+
+  def test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step3_step4(self, verbosity):
+    description = 'test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step3_step4'
+    method = 'findall'
+    lexicons = {}
+    data = [{'pos': 'PRP', 'raw': 'It'}, {'pos': 'VBZ', 'raw': 'is'}, {'pos': 'JJ', 'raw': 'easy'}, {'pos': 'CC', 'raw': 'and'}, {'pos': 'JJ', 'raw': 'funny'}, {'pos': 'TO', 'raw': 'to'}, {'pos': 'VB', 'raw': 'write'}, {'pos': 'JJ', 'raw': 'regular'}, {'pos': 'NNS', 'raw': 'expressions'}, {'pos': 'IN', 'raw': 'with'},{'pos': 'NNP', 'raw': 'Pyrata'}]
+    expected = [[{'raw': 'is', 'pos': 'VBZ'}, {'raw': 'fast', 'pos': 'JJ'}, {'raw': 'easy', 'pos': 'JJ'}, {'raw': 'and', 'pos': 'CC'}, {'raw': 'funny', 'pos': 'JJ'}, {'raw': 'to', 'pos': 'TO'}]]
+    self.test(description, method, lexicons, pattern, data, expected, verbosity)   
+
 
 # """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 # Declare here all the tests you want to run
@@ -433,7 +450,7 @@ class TestPyrata(object):
 
   def __init__(self):
 
-    myverbosity = 3
+    myverbosity = 2
     self.test_search_step_in_data(myverbosity)
     self.test_findall_step_in_data(myverbosity)
     self.test_finditer_step_in_data(myverbosity)
@@ -479,6 +496,8 @@ class TestPyrata(object):
     self.test_findall_step_any_not_step1_step1_in_data(myverbosity)
 
     self.test_search_groups_in_data(myverbosity)
+
+    self.test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step1_step2(myverbosity)
 
 
 
