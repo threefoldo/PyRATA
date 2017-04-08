@@ -402,7 +402,7 @@ class TestPyrata(object):
     data = [{'pos': 'PRP', 'raw': 'It'}, {'pos': 'VBZ', 'raw': 'is'}, {'pos': 'JJ', 'raw': 'fast'}, {'pos': 'JJ', 'raw': 'easy'}, {'pos': 'CC', 'raw': 'and'}, {'pos': 'JJ', 'raw': 'funny'}, {'pos': 'TO', 'raw': 'to'}, {'pos': 'VB', 'raw': 'write'}, {'pos': 'JJ', 'raw': 'regular'}, {'pos': 'NNS', 'raw': 'expressions'}, {'pos': 'IN', 'raw': 'with'},{'pos': 'NNP', 'raw': 'Pyrata'}]
     expected = [[[{'raw': 'is', 'pos': 'VBZ'}, {'raw': 'fast', 'pos': 'JJ'}, {'raw': 'easy', 'pos': 'JJ'}, {'raw': 'and', 'pos': 'CC'}, {'raw': 'funny', 'pos': 'JJ'}, {'raw': 'to', 'pos': 'TO'}], 1, 7], [[{'raw': 'is', 'pos': 'VBZ'}], 1, 2], [[{'raw': 'fast', 'pos': 'JJ'}, {'raw': 'easy', 'pos': 'JJ'}, {'raw': 'and', 'pos': 'CC'}, {'raw': 'funny', 'pos': 'JJ'}], 2, 6], [[{'raw': 'fast', 'pos': 'JJ'}, {'raw': 'easy', 'pos': 'JJ'}, {'raw': 'and', 'pos': 'CC'}, {'raw': 'funny', 'pos': 'JJ'}], 2, 6], [[{'raw': 'easy', 'pos': 'JJ'}, {'raw': 'and', 'pos': 'CC'}], 3, 5], [[{'raw': 'funny', 'pos': 'JJ'}], 5, 6], [[{'raw': 'to', 'pos': 'TO'}], 6, 7]]
     #self.test(description, method, lexicons, pattern, data, expected, verbosity)  
-    result = pyrata.re.search(pattern, data, lexicons=lexicons, verbosity = 1).groups
+    result = pyrata.re.search(pattern, data, lexicons=lexicons, verbosity = verbosity).groups
 
     #print ('Debug: type(result)=',result)
     if verbosity >0:
@@ -451,53 +451,53 @@ class TestPyrata(object):
   def __init__(self):
 
     myverbosity = 2
-    self.test_search_step_in_data(myverbosity)
-    self.test_findall_step_in_data(myverbosity)
-    self.test_finditer_step_in_data(myverbosity)
+    # self.test_search_step_in_data(myverbosity)
+    # self.test_findall_step_in_data(myverbosity)
+    # self.test_finditer_step_in_data(myverbosity)
 
-    self.test_search_step_absent_in_data(myverbosity)
-    self.test_findall_step_absent_in_data(myverbosity)
+    # self.test_search_step_absent_in_data(myverbosity)
+    # self.test_findall_step_absent_in_data(myverbosity)
 
-    self.test_search_class_step_in_data(myverbosity)
-    self.test_search_rich_class_step_in_data(myverbosity)
+    # self.test_search_class_step_in_data(myverbosity)
+    # self.test_search_rich_class_step_in_data(myverbosity)
 
-    self.test_findall_regex_step_in_data(myverbosity)
-    self.test_findall_lexicon_step_in_data(myverbosity)
-    self.test_findall_undefined_lexicon_step_in_data(myverbosity)
+    # self.test_findall_regex_step_in_data(myverbosity)
+    # self.test_findall_lexicon_step_in_data(myverbosity)
+    # self.test_findall_undefined_lexicon_step_in_data(myverbosity)
 
-    self.test_findall_multiple_lexicon_step_in_data(myverbosity)
+    # self.test_findall_multiple_lexicon_step_in_data(myverbosity)
 
-    self.test_search_optional_step_in_data(myverbosity)
-    self.test_findall_optional_step_in_data(myverbosity)
+    # self.test_search_optional_step_in_data(myverbosity)
+    # self.test_findall_optional_step_in_data(myverbosity)
     
-    self.test_findall_step_step_in_data(myverbosity)
+    # self.test_findall_step_step_in_data(myverbosity)
 
-    self.test_findall_optional_step_step_in_data(myverbosity)
-    self.test_findall_any_step_step_in_data(myverbosity)
-    self.test_findall_at_least_one_step_step_in_data(myverbosity)
+    # self.test_findall_optional_step_step_in_data(myverbosity)
+    # self.test_findall_any_step_step_in_data(myverbosity)
+    # self.test_findall_at_least_one_step_step_in_data(myverbosity)
 
-    self.test_findall_any_step_step_nbar_in_data(myverbosity)
-    self.test_findall_at_least_one_step_step_nbar_in_data(myverbosity)
+    # self.test_findall_any_step_step_nbar_in_data(myverbosity)
+    # self.test_findall_at_least_one_step_step_nbar_in_data(myverbosity)
 
-    self.test_findall_step_step_partially_matched_in_data_ending(myverbosity)
-    self.test_findall_optional_step_step_partially_matched_in_data_ending(myverbosity)
-    self.test_findall_any_step_step_partially_matched_in_data_ending(myverbosity)
-    self.test_findall_at_least_one_step_step_partially_matched_in_data_ending(myverbosity)
+    # self.test_findall_step_step_partially_matched_in_data_ending(myverbosity)
+    # self.test_findall_optional_step_step_partially_matched_in_data_ending(myverbosity)
+    # self.test_findall_any_step_step_partially_matched_in_data_ending(myverbosity)
+    # self.test_findall_at_least_one_step_step_partially_matched_in_data_ending(myverbosity)
 
-    self.test_findall_step_at_least_one_not_step_step_in_data(myverbosity)
-    self.test_findall_step_present_optional_step_step_in_data(myverbosity)
-    self.test_findall_step_absent_optional_step_step_in_data(myverbosity)
+    # self.test_findall_step_at_least_one_not_step_step_in_data(myverbosity)
+    # self.test_findall_step_present_optional_step_step_in_data(myverbosity)
+    # self.test_findall_step_absent_optional_step_step_in_data(myverbosity)
 
-    self.test_findall_step_optional_step_in_data(myverbosity)
-    self.test_findall_step_any_step_in_data(myverbosity)
-    self.test_findall_step_optinal_step_optional_step_step_in_data(myverbosity)
+    # self.test_findall_step_optional_step_in_data(myverbosity)
+    # self.test_findall_step_any_step_in_data(myverbosity)
+    # self.test_findall_step_optinal_step_optional_step_step_in_data(myverbosity)
 
-    self.test_search_any_class_step_error_step_in_data(myverbosity)
-    self.test_findall_step_any_not_step1_step1_in_data(myverbosity)
+    # self.test_search_any_class_step_error_step_in_data(myverbosity)
+    # self.test_findall_step_any_not_step1_step1_in_data(myverbosity)
 
     self.test_search_groups_in_data(myverbosity)
 
-    self.test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step1_step2(myverbosity)
+    #self.test_findall_step0_start_group_step1_step2_or_step3_step4_end_group_step5_in_data_wi_step1_step2(myverbosity)
 
 
 

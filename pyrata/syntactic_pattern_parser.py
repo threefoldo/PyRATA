@@ -108,15 +108,16 @@ class SyntacticPatternParser(object):
       else:
         self.log(p, '(quantified_step_group->LPAREN quantified_step_sequence_alternatives RPAREN)')
         #p.lexer.group_pattern_offsets_group_list.append([p.lexer.last_group_offsets_candidate[0],p.lexer.last_group_offsets_candidate[1]])
-    if len(p) == 4:    
-      p.lexer.group_pattern_offsets_group_list.append([p.lexer.last_group_offsets_candidate[0],p.lexer.quantified_step_index])
-      if self.verbosity >2:
-        print ('      group detected from {} to {}'.format(p.lexer.last_group_offsets_candidate[0],p.lexer.last_group_offsets_candidate[1]))
+    #if len(p) == 4:    
+    #  p.lexer.group_pattern_offsets_group_list.append([p.lexer.last_group_offsets_candidate[0],p.lexer.quantified_step_index])
+    #  if self.verbosity >2:
+    #    print ('      group detected from {} to {}'.format(p.lexer.last_group_offsets_candidate[0],p.lexer.last_group_offsets_candidate[1]))
 
 # _______________________________________________________________
   def p_quantified_step_sequence_alternatives(self, p): 
     ''' quantified_step_sequence_alternatives : quantified_step_sequence_alternatives OR part_of_group_of_quantified_step
-                    | part_of_group_of_quantified_step'''
+    | quantified_step_group_list ''' #                     | part_of_group_of_quantified_step 
+
     if self.verbosity >1:
       self.setPatternStep(p)
       if len(p) == 4:
